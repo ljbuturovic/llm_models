@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 The tool requires API keys set as environment variables:
 - `OPENAI_API_KEY` for OpenAI
-- `GOOGLE_API_KEY` for Google Gemini API, or `GOOGLE_CLOUD_PROJECT` for Vertex AI
+- `GOOGLE_API_KEY` for Google Gemini API, or `GOOGLE_CLOUD_PROJECT` for Vertex AI API
 - `ANTHROPIC_API_KEY` for Anthropic
 - `XAI_API_KEY` for xAI
 
@@ -41,7 +41,7 @@ List Google models using Gemini API:
 ./llm_models.py --provider Google
 ```
 
-List Google models using Vertex AI (with regional endpoint):
+List Google models using Vertex AI API (with regional endpoint):
 ```bash
 ./llm_models.py --provider Google --vertexai --region us-central1
 ```
