@@ -181,7 +181,7 @@ def list_xai_models():
         print("Error: XAI_API_KEY not set")
         sys.exit(1)
 
-    print("Listing available xAI models (xAI uses aliases, so grok-4 is an acceptable API name, resolving to grok-4-0709 as of Nov. 2025)...")
+    print("Listing available xAI models (NOTE: xAI uses aliases, so grok-4 is an acceptable API name, resolving to grok-4-0709 as of Nov. 2025)...")
     print("=" * 80)
 
     try:
