@@ -20,8 +20,21 @@ parser.add_argument("--region",
 args = parser.parse_args()
 
 # Validate region requirement for VertexAI
-if args.provider == "VertexAI" and not args.region:
-    parser.error("--region is required when provider is VertexAI")
+if args.provider == "VertexAI":
+    if not args.region:
+        parser.error("--region is required when provider is VertexAI")
+
+    # Validate region format (e.g., us-central1, europe-west4, asia-northeast1)
+    import re
+    if not re.match(r'^[a-z]+-[a-z]+\d+$', args.region):
+        print(f"Error: Invalid region format '{args.region}'")
+        print("Expected format: <continent>-<location><number> (e.g., 'us-central1', 'europe-west4')")
+        print("\nCommon Vertex AI regions:")
+        print("  us-central1, us-east4, us-west1")
+        print("  europe-west1, europe-west4")
+        print("  asia-northeast1, asia-southeast1")
+        print("\nSee: https://cloud.google.com/vertex-ai/docs/general/locations")
+        sys.exit(1)
 
 def list_openai_models():
     """List available OpenAI models"""
