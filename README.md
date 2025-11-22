@@ -33,7 +33,7 @@ The tool requires API keys set as environment variables:
 
 List OpenAI models:
 ```bash
-./llm_models.py --provider OpenAI
+$ ./llm_models.py --provider OpenAI
 ```
 
 List Google models using Gemini API:
