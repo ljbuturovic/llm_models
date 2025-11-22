@@ -8,13 +8,13 @@ import sys
 parser = argparse.ArgumentParser(
     description="List available LLM models from various providers",
     formatter_class=argparse.RawTextHelpFormatter)
-parser.add_argument("--provider",
+parser.add_argument("-p", "--provider",
                     required=True,
                     choices=["OpenAI", "Anthropic", "xAI", "GoogleAI", "VertexAI"],
                     help="""The LLM provider backend.
 - 'GoogleAI': Google AI Studio (API Key). Global/Auto-routed.
 - 'VertexAI': Google Cloud Vertex AI (IAM Auth). Region-specific.""")
-parser.add_argument("--region",
+parser.add_argument("-r", "--region",
                     help="""Google Cloud region (e.g., 'us-central1').
 *Required* if provider is VertexAI. Ignored for other providers.""")
 args = parser.parse_args()
