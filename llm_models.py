@@ -167,11 +167,8 @@ def _try_known_gemini_models(client):
 
 def list_anthropic_models():
     """List available Anthropic models"""
-    try:
-        import anthropic
-    except ImportError:
-        print("Error: anthropic package not installed. Install with: pip install anthropic")
-        sys.exit(1)
+    import json
+    import urllib.request
 
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
@@ -181,23 +178,27 @@ def list_anthropic_models():
     print("Listing available Anthropic models...")
     print("=" * 80)
 
-    # Anthropic doesn't have a list models API endpoint, so we list known models
-    known_models = [
-        "claude-3-5-sonnet-20241022",
-        "claude-3-5-sonnet-20240620",
-        "claude-3-opus-20240229",
-        "claude-3-sonnet-20240229",
-        "claude-3-haiku-20240307",
-        "claude-2.1",
-        "claude-2.0",
-    ]
+    try:
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/models",
+            headers={
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01"
+            }
+        )
+        with urllib.request.urlopen(req) as response:
+            data = json.loads(response.read().decode())
 
-    print("Known Anthropic Claude models:")
-    for model in known_models:
-        print(f"Model: {model}")
-
-    print("\nNote: Anthropic does not provide a models API endpoint.")
-    print("This is a list of known models. Check https://docs.anthropic.com/en/docs/models-overview for the latest.")
+        for model in data.get("data", []):
+            model_id = model.get("id", "unknown")
+            display_name = model.get("display_name", "")
+            if display_name:
+                print(f"Model: {model_id} ({display_name})")
+            else:
+                print(f"Model: {model_id}")
+    except Exception as e:
+        print(f"Error listing models: {e}")
+        sys.exit(1)
 
 
 def list_xai_models():

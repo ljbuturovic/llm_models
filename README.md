@@ -61,17 +61,15 @@ List Anthropic models:
 $ ./llm_models.py --provider Anthropic
 Listing available Anthropic models...
 ================================================================================
-Known Anthropic Claude models:
-Model: claude-3-5-sonnet-20241022
-Model: claude-3-5-sonnet-20240620
-Model: claude-3-opus-20240229
-Model: claude-3-sonnet-20240229
-Model: claude-3-haiku-20240307
-Model: claude-2.1
-Model: claude-2.0
-
-Note: Anthropic does not provide a models API endpoint.
-This is a list of known models. Check https://docs.anthropic.com/en/docs/models-overview for the latest.
+Model: claude-haiku-4-5-20251001 (Claude Haiku 4.5)
+Model: claude-sonnet-4-5-20250929 (Claude Sonnet 4.5)
+Model: claude-opus-4-1-20250805 (Claude Opus 4.1)
+Model: claude-opus-4-20250514 (Claude Opus 4)
+Model: claude-sonnet-4-20250514 (Claude Sonnet 4)
+Model: claude-3-7-sonnet-20250219 (Claude Sonnet 3.7)
+Model: claude-3-5-haiku-20241022 (Claude Haiku 3.5)
+Model: claude-3-haiku-20240307 (Claude Haiku 3)
+Model: claude-3-opus-20240229 (Claude Opus 3)
 ```
 
 List xAI models:
