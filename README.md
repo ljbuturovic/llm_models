@@ -6,7 +6,7 @@ A simple command-line tool to list available LLM models from various providers (
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/alpaca.git
+git clone https://github.com/ljbuturovic/alpaca.git
 cd alpaca
 ```
 
@@ -60,3 +60,4 @@ List xAI models:
 
 - Python 3.7+
 - See `requirements.txt` for package dependencies
+- tested on Ubuntu 24.04
