@@ -7,7 +7,7 @@ import sys
 
 parser = argparse.ArgumentParser(
     description="List available LLM models from various providers",
-    formatter_class=argparse.RawDescriptionHelpFormatter)
+    formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("--provider",
                     required=True,
                     choices=["OpenAI", "Anthropic", "xAI", "GoogleAI", "VertexAI"],
